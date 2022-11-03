@@ -8,12 +8,14 @@ import { TooltipComponent } from '../components/tooltip/tooltip.component';
 export class BitTooltipDirective implements OnInit, OnDestroy {
   // INPUTS
   @Input() set bitTooltip(value: string) { this._ttpText = value; };
+  @Input() set bitTooltipImgUrl(value: string) { this._ttpImgUrl = value; }
   
   // PRIVATES
   private _sub: Subscription = Subscription.EMPTY;
   private _natRef: HTMLElement = this._elmRef.nativeElement;
   private _ttpOffset: number = 15;
   private _ttpText: string = '';
+  private _ttpImgUrl: string = '';
   private _ttpClass: string = 'bit-tooltip';
 
   constructor(
@@ -63,6 +65,7 @@ export class BitTooltipDirective implements OnInit, OnDestroy {
 
     const ttpComp = this._vcr.createComponent(TooltipComponent);
     ttpComp.setInput('tooltipText', this._ttpText);
+    ttpComp.setInput('tooltipImgUrl', this._ttpImgUrl);
 
     const ttpNatv = ttpComp.location.nativeElement;
     this._rnd2.addClass(ttpNatv, this._ttpClass);
@@ -87,8 +90,10 @@ export class BitTooltipDirective implements OnInit, OnDestroy {
    */
   private _onMouseLeave(): void {
     let ttps = this._natRef.querySelectorAll(`.${this._ttpClass}`); 
-    if(!ttps.length) { return; }
-
-    ttps.forEach(x => x.remove()); // entfernt alle bit-tooltip elemente   
+    if(!ttps.length) { return; }      
+    
+    for(let i = 0; i < ttps.length; i++) {
+      this._vcr.remove(i);
+    }
   }
 }
