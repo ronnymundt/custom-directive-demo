@@ -90,9 +90,9 @@ export class BitTooltipDirective implements OnInit, OnDestroy {
    */
   private _onMouseLeave(): void {
     let ttps = this._natRef.querySelectorAll(`.${this._ttpClass}`); 
-    if(!ttps.length) { return; }      
-    
-    for(let i = 0; i < ttps.length; i++) {
+    if(!ttps.length) { return; }
+
+    for(let i = 0; i < this._vcr.length; i++) {
       this._vcr.remove(i);
     }
   }
