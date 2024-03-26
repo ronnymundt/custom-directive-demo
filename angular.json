@@ -45,12 +45,6 @@
                   "maximumError": "4kb"
                 }
               ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "outputHashing": "all"
             },
             "development": {
@@ -68,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "custom-directive-demo:build:production"
+              "buildTarget": "custom-directive-demo:build:production"
             },
             "development": {
-              "browserTarget": "custom-directive-demo:build:development"
+              "buildTarget": "custom-directive-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "custom-directive-demo:build"
+            "buildTarget": "custom-directive-demo:build"
           }
         },
         "test": {
