@@ -23,11 +23,11 @@ Diese Demo zeigt, wie man mit einer **Custom Directive**:
 
 ```
 git clone https://github.com/ronnymundt/custom-directive-demo.git
-cd async-validator-demo
+cd custom-directive-demo
 npm install
 ng serve
 ```
 
-## Screenshot
+## 📸 Screenshot
 
 ![Screenshot](/src/assets/screenshot.png)
