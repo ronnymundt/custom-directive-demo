@@ -1,2 +1,4 @@
-<img *ngIf="tooltipImgUrl" src="{{tooltipImgUrl}}">
-<span>{{tooltipText}}</span>
+@if (tooltipImgUrl) {
+  <img [src]="tooltipImgUrl" alt="Tooltip Image" />
+}
+<span>{{ tooltipText }}</span>
